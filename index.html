@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apa ni apa ni!</title>
+  <style>
+    /* 1. Background Pixelated Style */
+    body { 
+      background-color: #ffdeeb;
+      /* Pola pixel kecil agar senada dengan GIF */
+      background-image: radial-gradient(#ffb6c1 1px, transparent 1px);
+      background-size: 20px 20px;
+      font-family: 'Courier New', Courier, monospace; /* Font gaya retro */
+      display: flex; justify-content: center; align-items: center;
+      min-height: 100vh; margin: 0; padding: 20px;
+    }
+
+    .container { 
+      background: rgba(255, 255, 255, 0.95); 
+      width: 100%; max-width: 380px;
+      padding: 30px 20px; border-radius: 15px; 
+      border: 4px solid #ff69b4; /* Border tegas ala retro */
+      box-shadow: 8px 8px 0px #ffb6c1;
+      text-align: center;
+    }
+
+    .hidden { display: none; }
+    img { width: 140px; height: auto; margin-bottom: 20px; image-rendering: pixelated; }
+
+    /* 2. Animasi Teks Mengetik (Per Huruf) */
+    .typing-effect {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid #ff69b4;
+      font-weight: bold;
+      color: #ff4d94;
+      font-size: 1.1rem;
+      width: 0;
+    }
+
+    .animate-text {
+      animation: typing 2.5s steps(30, end) forwards, blink 0.7s step-end infinite;
+    }
+
+    @keyframes typing { from { width: 0 } to { width: 100% } }
+    @keyframes blink { 50% { border-color: transparent } }
+
+    /* 3. Tombol Berkedut (Interactive Pulse) */
+    .btn-pulse {
+      background: #ff69b4;
+      color: white; border: none; padding: 15px; border-radius: 10px; 
+      cursor: pointer; font-size: 1rem; font-weight: bold;
+      margin-top: 25px; width: 100%;
+      box-shadow: 0 4px 0px #c71585;
+      text-transform: uppercase;
+      animation: pulse-animation 1.5s infinite; /* Efek berkedut */
+    }
+
+    @keyframes pulse-animation {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); box-shadow: 0 0 15px rgba(255, 105, 180, 0.7); }
+      100% { transform: scale(1); }
+    }
+
+    .btn-pulse:active { transform: translateY(4px); box-shadow: 0 0px 0px #c71585; }
+
+    .long-text {
+      text-align: left; font-size: 0.9rem; color: #444;
+      line-height: 1.5; background: #fff; padding: 15px;
+      border: 2px dashed #ff69b4; border-radius: 10px;
+      max-height: 200px; overflow-y: auto; margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div id="part1">
+      <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNndnc2cxZzh1bWVxdWFpMjJnNXY3cmdhNjVqb3RnODllbHgzamJiOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9DnIQnhyaMZY2WEqHx/giphy.gif">
+      <div><span class="typing-effect animate-text">Halo wok gweh ada something muehehe!</span></div>
+      <button class="btn-pulse" onclick="nextPart(1)">Klik Yach! ✨</button>
+    </div>
+
+    <div id="part2" class="hidden">
+      <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2d0eWJoZTlzbG91dWZxaXM5dGl3N2gydWR2cDU0ZHdrN2Y3MWNzOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/pGqghGtPQN8Wp801on/giphy.gif">
+      <div><span id="text2" class="typing-effect">Dah Ready blum? 🤭</span></div>
+      <button class="btn-pulse" onclick="nextPart(2)">Jen jeng jeng! 🎁</button>
+    </div>
+
+    <div id="part3" class="hidden">
+      <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3M1N24yZGt4MmhrMHgwZ21rZmk1aGRsZmgyMnY0NThoOG1tbWV4ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9LjWIuhsRPYxXXjmNK/giphy.gif">
+      <div><span id="text3" class="typing-effect">WOW apaan tuh! 😨</span></div>
+      <button class="btn-pulse" onclick="nextPart(3)">Klik Cepat!</button>
+    </div>
+
+    <div id="part4" class="hidden">
+      <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXR2bDh3ZHZkbmpkMXZnZnpsd3MzZjd4YnhhMTh4bjM1dnE0Z2t5eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/drOI5gfc2SPAerMHOn/giphy.gif">
+      <div style="margin-bottom: 10px;"><span id="text4" class="typing-effect">Happy Sweet Seventeen Gabby! 🎉</span></div>
+      <button class="btn-pulse" onclick="nextPart(4)">Cihuy!</button>
+    </div>
+
+    <div id="part5" class="hidden">
+      <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbWpwNWp4bnE5a29iNnNjYjloajFwbzN5dWNxdDQ0Y2hhZzN0dzJxOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/4IRVl8i267JN6/giphy.gif">
+      <div><span id="text5" class="typing-effect">Semoga Panjang Umur ya! God Bless! </span></div>
+      <button class="btn-pulse" onclick="nextPart(5)">Ada Apa lagi nich? 🤭</button>
+    </div>
+
+    <div id="part6" class="hidden">
+      <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWhndHF6NnJ1bGJ4bzU1anRrNGZtaGZ5bGUyYzJiMXQ0MW1henB5bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/nUKufyQSSnJi8/giphy.gif">
+      <div class="long-text">
+        To my best friend gabby...<br><br>
+        So proud to know you and to be your friend! i hope you have a great year ahead, filled with love, laughter, and all the things that make you happy! You deserve it all cuy! Keep shining bright Gebik!! 🎉✨
+      </div>
+      <button class="btn-pulse" onclick="location.reload()">Ulangi ↻</button>
+    </div>
+  </div>
+  <audio id="laguBackground" loop>
+  <source src="season.mp3" type="audio/mpeg">
+</audio>
+
+  <script>
+    function nextPart(current) {
+      document.getElementById('part' + current).classList.add('hidden');
+      const nextStep = current + 1;
+      const nextDiv = document.getElementById('part' + nextStep);
+      
+      nextDiv.classList.remove('hidden');
+      
+      // Memicu animasi mengetik ulang setiap pindah halaman
+      const nextText = document.getElementById('text' + nextStep);
+      if(nextText) {
+        nextText.classList.add('animate-text');
+      }
+    }
+    // Variabel untuk mengecek apakah musik sudah mulai
+let musikSudahJalan = false;
+
+function nextPart(current) {
+  const musik = document.getElementById('laguBackground');
+
+  // Musik akan mulai saat tombol PERTAMA diklik
+  if (!musikSudahJalan) {
+    musik.play().catch(error => {
+      console.log("Interaksi diperlukan untuk memulai audio");
+    });
+    musikSudahJalan = true; // Menandai bahwa musik sudah aktif
+  }
+
+  // Logika perpindahan scene (tetap sama)
+  document.getElementById('part' + current).classList.add('hidden');
+  
+  const nextStep = current + 1;
+  const nextDiv = document.getElementById('part' + nextStep);
+  
+  if (nextDiv) {
+    nextDiv.classList.remove('hidden');
+    const nextText = document.getElementById('text' + nextStep);
+    if (nextText) {
+      nextText.classList.add('animate-text');
+    }
+  }
+}
+  </script>
+</body>
+</html>
