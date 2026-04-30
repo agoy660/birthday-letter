@@ -110,14 +110,14 @@
     <div id="part6" class="hidden">
       <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWhndHF6NnJ1bGJ4bzU1anRrNGZtaGZ5bGUyYzJiMXQ0MW1henB5bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/nUKufyQSSnJi8/giphy.gif">
       <div class="long-text">
-        Dear my best friend gabby...<br><br>
+        To my best friend gabby...<br><br>
         So proud to know you and to be your friend! i hope you have a great year ahead, filled with love, laughter, and all the things that make you happy! You deserve it all cuy! Keep shining bright Gebik!! 🎉✨
       </div>
       <button class="btn-pulse" onclick="location.reload()">Ulangi ↻</button>
     </div>
   </div>
   <audio id="laguBackground" loop>
-  <source src="season.mp3" type="audio/mpeg">
+  <source src="hb.mp3" type="audio/mpeg">
 </audio>
 
   <script>
@@ -140,15 +140,16 @@ let musikSudahJalan = false;
 function nextPart(current) {
   const musik = document.getElementById('laguBackground');
 
-  // Musik akan mulai saat tombol PERTAMA diklik
-  if (!musikSudahJalan) {
+  // Musik BARU akan mulai saat tombol di Part 3 diklik 
+  // (Yaitu saat menuju ke Part 4 / Ucapan Ultah)
+  if (current === 3 && !musikSudahJalan) {
     musik.play().catch(error => {
-      console.log("Interaksi diperlukan untuk memulai audio");
+      console.log("Musik tertunda karena kebijakan browser");
     });
-    musikSudahJalan = true; // Menandai bahwa musik sudah aktif
+    musikSudahJalan = true;
   }
 
-  // Logika perpindahan scene (tetap sama)
+  // Logika perpindahan scene
   document.getElementById('part' + current).classList.add('hidden');
   
   const nextStep = current + 1;
